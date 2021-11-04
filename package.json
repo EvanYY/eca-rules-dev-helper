@@ -1,0 +1,14 @@
+{
+  "name": "base-eac-visual",
+  "version": "1.0.0",
+  "description": "q7 eca rules visual",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "EvanYY",
+  "license": "ISC",
+  "devDependencies": {
+    "echarts": "^5.2.2"
+  }
+}

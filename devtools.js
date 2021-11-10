@@ -2,7 +2,7 @@
  * @Author: Evan
  * @Date: 2021-11-04 12:43:01
  * @Last Modified by: yangyang
- * @Last Modified time: 2021-11-10 15:20:15
+ * @Last Modified time: 2021-11-10 15:56:53
  */
 let created = false;
 let checkCount = 0;
@@ -42,6 +42,8 @@ function createPanels() {
         "🚀 ~ file: devtools.js ~ line 41 ~ createPanels ~ extensionPanel",
         extensionPanel
       );
+      let _window;
+      const contentScriptData = [];
       // let _window;
       // const contentScriptData = [];
       // 与后台网页消息通信-长连接
@@ -52,10 +54,36 @@ function createPanels() {
           "🚀 ~ file: devtools.js ~ line 56 ~ port.onMessage.addListener ~ message",
           message
         );
+        if (_window && _window.contentScriptReceiver) {
+          _window.contentScriptReceiver(message);
+        } else {
+          // contentScriptData.push(message);
+        }
       });
       port.postMessage({
         name: "original",
         tabId: chrome.devtools.inspectedWindow.tabId,
+      });
+
+      // 执行代码
+      const sendMessageToBackground = (message, callback) => {
+        chrome.devtools.inspectedWindow.eval(message, (value) => {
+          callback && callback(value);
+        });
+      };
+
+      extensionPanel.onShown.addListener((panelWindow) => {
+        _window = panelWindow;
+        // 审查窗口
+        // _window.inspectedWindow = chrome.devtools.inspectedWindow;
+
+        _window.respond = function (msg, callback) {
+          sendMessageToBackground(msg, callback);
+        };
+
+        while (contentScriptData.length !== 0) {
+          _window.contentScriptReceiver(contentScriptData.shift());
+        }
       });
     }
   );

@@ -2,7 +2,7 @@
  * @Author: Evan
  * @Date: 2021-11-04 12:43:01
  * @Last Modified by: yangyang
- * @Last Modified time: 2021-11-10 14:50:24
+ * @Last Modified time: 2021-11-10 15:20:15
  */
 let created = false;
 let checkCount = 0;
@@ -36,7 +36,7 @@ function createPanels() {
   chrome.devtools.panels.create(
     "q7 visual helper",
     "icons/panel-icon.png",
-    "static-panel/index.html",
+    "panel/index.html",
     function (extensionPanel) {
       console.log(
         "🚀 ~ file: devtools.js ~ line 41 ~ createPanels ~ extensionPanel",

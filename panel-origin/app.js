@@ -1,14 +1,3 @@
-const $state = {
-  isPaintRecording: true, // 监听
-  selectorActive: false, // 元素选择
-  snapshoot: {}, // 元素快照
-  treeElements: {
-    expansionMap: [],
-    inspectedInstance: {},
-  },
-  elements: {},
-};
-
 // port.postMessage({
 //   name: "original",
 //   tabId: chrome.devtools.inspectedWindow.tabId,

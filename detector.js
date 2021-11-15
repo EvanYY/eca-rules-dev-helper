@@ -5,11 +5,13 @@ function detect() {
         target: {
           s: "start",
           e: "end",
+          a: "abort",
         },
       };
     },
+    ACTIVE: false,
     state: {
-      status: false,
+      abort: [],
       start: [],
       end: [],
     },
@@ -40,8 +42,16 @@ function detect() {
     action: function (status) {
       console.log("🚀 ~ file: detector.js ~ line 77 ~ detect ~ status", status);
       if (typeof status !== "boolean") return;
-      this.state.status = status;
       this.dispatchEvent(status ? "start" : "end");
+    },
+    changeActive(status) {
+      this.ACTIVE = !!status;
+      if (!!status) {
+        this.abort();
+      }
+    },
+    abort: function () {
+      this.dispatchEvent("abort");
     },
     notice: function (origin) {
       const data =

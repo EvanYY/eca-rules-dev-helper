@@ -1,66 +1,80 @@
 function detect() {
-  window.__EAC_DEV_TOOLS__ = {
-    getStatic: function () {
+  class Devtools {
+    constructor() {
+      this.ACTIVE = false;
+      this.state = Object.freeze({
+        abort: [],
+        start: [],
+        end: [],
+      });
+      this.notice = function (origin, action) {
+        const data =
+          typeof origin === "string"
+            ? origin
+            : JSON.parse(JSON.stringify(origin));
+        window.postMessage({
+          source: "__EAC_DEV_TODOS__",
+          data: data,
+          action: action || "notice",
+        });
+      };
+    }
+    addEvent(target, ev) {
+      if (
+        target in this.state &&
+        typeof ev === "function" &&
+        !this.state[target].some((v) => v === ev)
+      ) {
+        this.state[target].push(ev);
+      } else {
+        console.error("订阅错误", target, ev);
+      }
+    }
+    getStatic() {
       return {
         target: {
           s: "start",
           e: "end",
           a: "abort",
         },
+        action: {
+          n: "notice",
+          a: "abort",
+        },
       };
-    },
-    ACTIVE: false,
-    state: {
-      abort: [],
-      start: [],
-      end: [],
-    },
-    addEvent: function (target, ev) {
-      if (
-        (target === "start" || target === "end") &&
-        !this.state[target].some((v) => v === ev)
-      ) {
-        this.state[target].push(ev);
-      }
-    },
-    removeEvent: function (target, ev) {
-      if (target === "start" || target === "end") {
+    }
+    removeEvent(target, ev) {
+      if (target in this.state) {
         const idx = this.state[target].findIndex((v) => v === ev);
         if (idx !== -1) this.state[target].splice(idx, 1);
       }
-    },
-    dispatchEvent: function (target) {
+    }
+    dispatchEvent(target) {
       let a = Array.from(arguments);
-      if (target === "start" || target === "end") {
+      if (target in this.state) {
         this.state[target].forEach((v) => {
           if (typeof v === "function") {
             v(this.notice, ...a.slice(1));
           }
         });
       }
-    },
-    action: function (status) {
+    }
+    action(status) {
       console.log("🚀 ~ file: detector.js ~ line 77 ~ detect ~ status", status);
       if (typeof status !== "boolean") return;
       this.dispatchEvent(status ? "start" : "end");
-    },
+    }
     changeActive(status) {
       this.ACTIVE = !!status;
       if (!!status) {
         this.abort();
       }
-    },
-    abort: function () {
+    }
+    abort() {
       this.dispatchEvent("abort");
-    },
-    notice: function (origin) {
-      const data =
-        typeof origin === "string"
-          ? origin
-          : JSON.parse(JSON.stringify(origin));
-      window.postMessage({ source: "__EAC_DEV_TODOS__", data: data });
-    },
-  };
+    }
+  }
+  window.__EAC_DEV_TOOLS__ = new Devtools();
 }
 
 if (document instanceof HTMLDocument) {

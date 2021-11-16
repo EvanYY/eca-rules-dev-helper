@@ -68,6 +68,8 @@ function detect() {
       } else if (action === "active") {
         this.ACTIVE = !!status;
         this.dispatchEvent("active", this.ACTIVE);
+      } else if (action === "abort") {
+        this.dispatchEvent(action, status);
       }
     }
     changeActive(status) {

@@ -62,11 +62,6 @@ function detect() {
       }
     }
     action(status, action) {
-      console.log(
-        "🚀 ~ file: detector.js ~ line 77 ~ detect ~ status, action",
-        status,
-        action
-      );
       if (action === "emit") {
         if (typeof status !== "boolean") return;
         this.dispatchEvent(status ? "start" : "stop");

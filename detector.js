@@ -3,11 +3,12 @@ function detect() {
     constructor() {
       this.ACTIVE = false;
       this.state = Object.freeze({
+        active: [],
         abort: [],
         start: [],
-        end: [],
+        stop: [],
       });
-      this.notice = function (origin, action) {
+      this.emit = function (origin, action) {
         const data =
           typeof origin === "string"
             ? origin
@@ -15,7 +16,7 @@ function detect() {
         window.postMessage({
           source: "__EAC_DEV_TODOS__",
           data: data,
-          action: action || "notice",
+          action: action || "emit",
         });
       };
     }
@@ -33,13 +34,14 @@ function detect() {
     getStatic() {
       return {
         target: {
-          s: "start",
-          e: "end",
-          a: "abort",
+          start: "start",
+          stop: "stop",
+          abort: "abort",
+          alive: "active",
         },
         action: {
-          n: "notice",
-          a: "abort",
+          emit: "emit",
+          abort: "abort",
         },
       };
     }
@@ -54,7 +56,7 @@ function detect() {
       if (target in this.state) {
         this.state[target].forEach((v) => {
           if (typeof v === "function") {
-            v(this.notice, ...a.slice(1));
+            v(this.emit, ...a.slice(1));
           }
         });
       }
@@ -62,7 +64,7 @@ function detect() {
     action(status) {
       console.log("🚀 ~ file: detector.js ~ line 77 ~ detect ~ status", status);
       if (typeof status !== "boolean") return;
-      this.dispatchEvent(status ? "start" : "end");
+      this.dispatchEvent(status ? "start" : "stop");
     }
     changeActive(status) {
       this.ACTIVE = !!status;

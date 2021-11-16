@@ -38,7 +38,6 @@ window.contentScriptReceiver = (data) => {
   console.log("🚀 ~ file: app.js ~ line 49 ~ data panel.html", data);
   if (data.source && data.source === "__EAC_DEV_TODOS__") {
     const handler = handlers.noticePanel;
-
     if (handler && handler.length) {
       handler.forEach((v) => {
         if (typeof v === "function") {

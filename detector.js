@@ -85,7 +85,20 @@ function detect() {
       this.dispatchEvent("abort");
     }
   }
-  window.__EAC_DEV_TOOLS__ = new Devtools();
+  const devtools = new Devtools();
+  window.__EAC_DEV_TOOLS__ = devtools;
+  window.addEventListener("message", function (ev) {
+    if (
+      ev.origin === window.origin &&
+      ev.data &&
+      ev.data.source === "__EAC_DEV_TOOLS_BACKGROUND__"
+    ) {
+      const { action, data } = ev.data;
+      if (action === "active") {
+        devtools.action(data, "active");
+      }
+    }
+  });
 }
 
 if (document instanceof HTMLDocument) {

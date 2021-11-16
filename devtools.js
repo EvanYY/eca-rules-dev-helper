@@ -2,7 +2,7 @@
  * @Author: Evan
  * @Date: 2021-11-04 12:43:01
  * @Last Modified by: yangyang
- * @Last Modified time: 2021-11-16 13:54:22
+ * @Last Modified time: 2021-11-16 14:51:31
  */
 let created = false;
 let checkCount = 0;
@@ -61,7 +61,7 @@ function createPanels() {
         }
       });
       port.postMessage({
-        name: "original",
+        source: "__EAC_DEV_TOOLS_HELPER__",
         tabId: chrome.devtools.inspectedWindow.tabId,
       });
 
@@ -86,11 +86,4 @@ function createPanels() {
       });
     }
   );
-  // window.onbeforeunload = function (event) {
-  //   // changeStatusOrder(false, 'active')
-  //   chrome.devtools.inspectedWindow.eval(
-  //     `${MESSAGE_BASE}.action(false, "active")`
-  //   );
-  //   return null;
-  // };
 }

@@ -37,7 +37,7 @@ function detect() {
           start: "start",
           stop: "stop",
           abort: "abort",
-          alive: "active",
+          active: "active",
         },
         action: {
           emit: "emit",
@@ -56,15 +56,24 @@ function detect() {
       if (target in this.state) {
         this.state[target].forEach((v) => {
           if (typeof v === "function") {
-            v(this.emit, ...a.slice(1));
+            v(...a.slice(1));
           }
         });
       }
     }
-    action(status) {
-      console.log("🚀 ~ file: detector.js ~ line 77 ~ detect ~ status", status);
-      if (typeof status !== "boolean") return;
-      this.dispatchEvent(status ? "start" : "stop");
+    action(status, action) {
+      console.log(
+        "🚀 ~ file: detector.js ~ line 77 ~ detect ~ status, action",
+        status,
+        action
+      );
+      if (action === "emit") {
+        if (typeof status !== "boolean") return;
+        this.dispatchEvent(status ? "start" : "stop");
+      } else if (action === "active") {
+        this.ACTIVE = !!status;
+        this.dispatchEvent("active", this.ACTIVE);
+      }
     }
     changeActive(status) {
       this.ACTIVE = !!status;

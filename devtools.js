@@ -2,11 +2,11 @@
  * @Author: Evan
  * @Date: 2021-11-04 12:43:01
  * @Last Modified by: yangyang
- * @Last Modified time: 2021-11-11 15:35:55
+ * @Last Modified time: 2021-11-16 13:54:22
  */
 let created = false;
 let checkCount = 0;
-
+const MESSAGE_BASE = "window.__EAC_DEV_TOOLS__";
 // chrome.devtools.network.onNavigated.addListener(createPanelIfHasEasyCanvas);
 // const checkVueInterval = setInterval(createPanelIfHasEasyCanvas, 1000);
 // createPanelIfHasEasyCanvas();
@@ -71,7 +71,6 @@ function createPanels() {
           callback && callback(value);
         });
       };
-
       extensionPanel.onShown.addListener((panelWindow) => {
         _window = panelWindow;
         // 审查窗口
@@ -87,4 +86,11 @@ function createPanels() {
       });
     }
   );
+  // window.onbeforeunload = function (event) {
+  //   // changeStatusOrder(false, 'active')
+  //   chrome.devtools.inspectedWindow.eval(
+  //     `${MESSAGE_BASE}.action(false, "active")`
+  //   );
+  //   return null;
+  // };
 }

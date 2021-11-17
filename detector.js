@@ -8,6 +8,22 @@ function detect() {
         start: [],
         stop: [],
       });
+      this.getStatic = function () {
+        return {
+          target: {
+            start: "start",
+            stop: "stop",
+            abort: "abort",
+            active: "active",
+          },
+          action: {
+            emit: "emit",
+            abort: "abort",
+            emitWait: "emitPendding",
+            emitDic: "emitRuleDictionary",
+          },
+        };
+      };
       this.emit = function (origin, action) {
         const data =
           typeof origin === "string"
@@ -19,37 +35,23 @@ function detect() {
           action: action || "emit",
         });
       };
-    }
-    addEvent(target, ev) {
-      if (
-        target in this.state &&
-        typeof ev === "function" &&
-        !this.state[target].some((v) => v === ev)
-      ) {
-        this.state[target].push(ev);
-      } else {
-        console.error("订阅错误", target, ev);
-      }
-    }
-    getStatic() {
-      return {
-        target: {
-          start: "start",
-          stop: "stop",
-          abort: "abort",
-          active: "active",
-        },
-        action: {
-          emit: "emit",
-          abort: "abort",
-        },
+      this.addEvent = function (target, ev) {
+        if (
+          target in this.state &&
+          typeof ev === "function" &&
+          !this.state[target].some((v) => v === ev)
+        ) {
+          this.state[target].push(ev);
+        } else {
+          console.error("订阅错误", target, ev);
+        }
       };
-    }
-    removeEvent(target, ev) {
-      if (target in this.state) {
-        const idx = this.state[target].findIndex((v) => v === ev);
-        if (idx !== -1) this.state[target].splice(idx, 1);
-      }
+      this.removeEvent = function (target, ev) {
+        if (target in this.state) {
+          const idx = this.state[target].findIndex((v) => v === ev);
+          if (idx !== -1) this.state[target].splice(idx, 1);
+        }
+      };
     }
     dispatchEvent(target) {
       let a = Array.from(arguments);

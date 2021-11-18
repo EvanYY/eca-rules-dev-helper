@@ -74,12 +74,6 @@ function detect() {
         this.dispatchEvent(action, status);
       }
     }
-    changeActive(status) {
-      this.ACTIVE = !!status;
-      if (!!status) {
-        this.abort();
-      }
-    }
     abort() {
       this.dispatchEvent("abort");
     }

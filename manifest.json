@@ -36,8 +36,8 @@
   ],
   "background": {
     "scripts": [
-      "/background/background.js",
-      "/background/hotreload.js"
+      "background/background.js",
+      "background/hotreload.js"
     ]
   }
 }

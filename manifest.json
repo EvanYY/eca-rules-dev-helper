@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "EvanYY",
   "description": "q7 eca rule debug helper",
-  "devtools_page": "devtools.html",
+  "devtools_page": "devtools/index.html",
   "permissions": [
     "activeTab",
     "tabs",
@@ -21,7 +21,7 @@
         "http://*/*"
       ],
       "js": [
-        "content-script.js"
+        "content-script/content-script.js"
       ]
     },
     {
@@ -29,15 +29,15 @@
         "<all_urls>"
       ],
       "js": [
-        "detector.js"
+        "content-script/detector.js"
       ],
       "run_at": "document_start"
     }
   ],
   "background": {
     "scripts": [
-      "background.js",
-      "hotreload.js"
+      "/background/background.js",
+      "/background/hotreload.js"
     ]
   }
 }

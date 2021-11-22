@@ -3,7 +3,7 @@
   "name": "q7 eca rules devtools",
   "version": "1.0.0",
   "author": "EvanYY",
-  "description": "q7 form helper",
+  "description": "q7 eca rule debug helper",
   "devtools_page": "devtools.html",
   "permissions": [
     "activeTab",
@@ -12,25 +12,32 @@
     "https://*/*"
   ],
   "icons": {
-    "128": "icons/app-icon-test.png",
-    "64": "icons/app-icon-test.png",
-    "48": "icons/app-icon-test.png",
-    "32": "icons/app-icon-test.png",
-    "16": "icons/app-icon-test.png"
+    "128": "icons/app-icon-test.png"
   },
   "content_scripts": [
     {
       "run_at": "document_start",
-      "matches": ["http://*/*"],
-      "js": ["content-script.js"]
+      "matches": [
+        "http://*/*"
+      ],
+      "js": [
+        "content-script.js"
+      ]
     },
     {
-      "matches": ["<all_urls>"],
-      "js": ["detector.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "detector.js"
+      ],
       "run_at": "document_start"
     }
   ],
   "background": {
-    "scripts": ["background.js", "hotreload.js"]
+    "scripts": [
+      "background.js",
+      "hotreload.js"
+    ]
   }
 }

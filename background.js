@@ -11,10 +11,6 @@ const emitCurrentPage = (action, data) => {
 };
 chrome.runtime.onConnect.addListener(function (port) {
   const extensionListener = function (message, sender, sendResponse) {
-    console.log(
-      "🚀 ~ file: background.js ~ line 9 ~ extensionListener ~ message.tabId",
-      message
-    );
     if (message.source == "__EAC_DEV_TOOLS_HELPER__") {
       connections[message.tabId] = port;
       emitCurrentPage("active", true);

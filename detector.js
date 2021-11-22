@@ -21,6 +21,7 @@ function detect() {
             abort: "abort",
             emitWait: "emitPendding",
             emitDic: "emitRuleDictionary",
+            emitResolve: "emitResolve",
           },
         };
       };

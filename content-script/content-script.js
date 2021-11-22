@@ -1,4 +1,4 @@
-// // 监听页面发起的__EASYCANVAS_BRIDGE_TOPANEL__事件，一般用于选择元素时
+// 监听页面发起的__EASYCANVAS_BRIDGE_TOPANEL__事件，一般用于选择元素时
 window.addEventListener("message", (e) => {
   if (e.source === window && e.data && e.data.source === "__EAC_DEV_TODOS__") {
     console.log(

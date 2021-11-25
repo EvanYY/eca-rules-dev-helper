@@ -2,7 +2,7 @@
  * @Author: Evan
  * @Date: 2021-11-04 12:43:01
  * @Last Modified by: yangyang
- * @Last Modified time: 2021-11-23 19:24:37
+ * @Last Modified time: 2021-11-25 16:56:08
  */
 let created = false;
 let checkCount = 0;
@@ -70,7 +70,7 @@ function createPanels() {
   //   };
   // }
   chrome.devtools.panels.create(
-    "q7 visual helper",
+    "Eca Rules Debug",
     "",
     "panel/index.html",
     function (extensionPanel) {

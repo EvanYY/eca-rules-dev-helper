@@ -2,6 +2,10 @@
 const connections = {};
 const emitCurrentPage = (action, data) => {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    if (!tabs[0] || !tabs[0].id) {
+      console.log(`${tabs[0]} is not exit,please refresh tab`);
+      return;
+    }
     chrome.tabs.sendMessage(tabs[0].id, {
       source: "__EAC_DEV_TOOLS_BACKGROUND__",
       action: action,

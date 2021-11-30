@@ -8,7 +8,5 @@
   },
   "author": "EvanYY",
   "license": "ISC",
-  "devDependencies": {
-    "echarts": "^5.2.2"
-  }
+  "devDependencies": {}
 }

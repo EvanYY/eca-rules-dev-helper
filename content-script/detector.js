@@ -26,7 +26,6 @@ function detect() {
         };
       };
       this.emit = function (origin, action) {
-        debugger;
         const data =
           typeof origin === "string"
             ? origin
@@ -100,5 +99,5 @@ if (document instanceof HTMLDocument) {
   const script = document.createElement("script");
   script.textContent = ";(" + detect.toString() + ")(window)";
   document.documentElement.appendChild(script);
-  // script.parentNode.removeChild(script);
+  script.parentNode.removeChild(script);
 }

@@ -95,7 +95,7 @@ function detect() {
   });
 }
 
-if (document instanceof HTMLDocument) {
+if (document instanceof Document) {
   const script = document.createElement("script");
   script.textContent = ";(" + detect.toString() + ")(window)";
   document.documentElement.appendChild(script);

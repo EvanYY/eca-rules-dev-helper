@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/panel/static/css/main.820f7702.chunk.css",
-    "main.js": "/panel/static/js/main.f3ab52d8.chunk.js",
-    "runtime-main.js": "/panel/static/js/runtime-main.a3ed88ea.js",
-    "static/css/2.fd9bf2d2.chunk.css": "/panel/static/css/2.fd9bf2d2.chunk.css",
-    "static/js/2.dbf3e6cb.chunk.js": "/panel/static/js/2.dbf3e6cb.chunk.js",
-    "static/js/3.cbc0bf5d.chunk.js": "/panel/static/js/3.cbc0bf5d.chunk.js",
+    "main.css": "/panel/static/css/main.2d1ea4f6.chunk.css",
+    "main.js": "/panel/static/js/main.f7895fde.chunk.js",
+    "runtime-main.js": "/panel/static/js/runtime-main.d4fa59d2.js",
+    "static/css/2.a4406c3f.chunk.css": "/panel/static/css/2.a4406c3f.chunk.css",
+    "static/js/2.3be29baa.chunk.js": "/panel/static/js/2.3be29baa.chunk.js",
+    "static/js/3.5262b2b8.chunk.js": "/panel/static/js/3.5262b2b8.chunk.js",
     "index.html": "/panel/index.html",
-    "static/js/2.dbf3e6cb.chunk.js.LICENSE.txt": "/panel/static/js/2.dbf3e6cb.chunk.js.LICENSE.txt"
+    "static/js/2.3be29baa.chunk.js.LICENSE.txt": "/panel/static/js/2.3be29baa.chunk.js.LICENSE.txt",
+    "static/media/delete.a762156b.svg": "/panel/static/media/delete.a762156b.svg",
+    "static/media/move.00692c67.svg": "/panel/static/media/move.00692c67.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a3ed88ea.js",
-    "static/css/2.fd9bf2d2.chunk.css",
-    "static/js/2.dbf3e6cb.chunk.js",
-    "static/css/main.820f7702.chunk.css",
-    "static/js/main.f3ab52d8.chunk.js"
+    "static/js/runtime-main.d4fa59d2.js",
+    "static/css/2.a4406c3f.chunk.css",
+    "static/js/2.3be29baa.chunk.js",
+    "static/css/main.2d1ea4f6.chunk.css",
+    "static/js/main.f7895fde.chunk.js"
   ]
 }

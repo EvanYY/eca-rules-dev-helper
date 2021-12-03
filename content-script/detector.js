@@ -1,3 +1,9 @@
+/*
+ * @Author: Evan
+ * @Date: 2021-12-02 14:43:03
+ * @Last Modified by:   yangyang
+ * @Last Modified time: 2021-12-02 14:43:03
+ */
 function detect() {
   class Devtools {
     constructor() {

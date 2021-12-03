@@ -1,3 +1,9 @@
+/*
+ * @Author: Evan
+ * @Date: 2021-12-02 14:42:54
+ * @Last Modified by:   yangyang
+ * @Last Modified time: 2021-12-02 14:42:54
+ */
 // 作为content script 与 devtool 通信的桥
 const connections = {};
 const emitCurrentPage = (action, data) => {

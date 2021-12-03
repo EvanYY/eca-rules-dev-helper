@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/panel/static/css/main.2899ae1f.chunk.css",
-    "main.js": "/panel/static/js/main.3f907cc9.chunk.js",
+    "main.css": "/panel/static/css/main.f9e4986c.chunk.css",
+    "main.js": "/panel/static/js/main.536ea072.chunk.js",
     "runtime-main.js": "/panel/static/js/runtime-main.a888d215.js",
     "static/css/2.a4406c3f.chunk.css": "/panel/static/css/2.a4406c3f.chunk.css",
-    "static/js/2.57236560.chunk.js": "/panel/static/js/2.57236560.chunk.js",
+    "static/js/2.482f30cc.chunk.js": "/panel/static/js/2.482f30cc.chunk.js",
     "static/js/3.86862341.chunk.js": "/panel/static/js/3.86862341.chunk.js",
     "index.html": "/panel/index.html",
-    "static/js/2.57236560.chunk.js.LICENSE.txt": "/panel/static/js/2.57236560.chunk.js.LICENSE.txt",
-    "static/media/delete.a762156b.svg": "/panel/static/media/delete.a762156b.svg",
-    "static/media/move.00692c67.svg": "/panel/static/media/move.00692c67.svg"
+    "static/js/2.482f30cc.chunk.js.LICENSE.txt": "/panel/static/js/2.482f30cc.chunk.js.LICENSE.txt",
+    "static/media/arrow.d7c75b4a.svg": "/panel/static/media/arrow.d7c75b4a.svg",
+    "static/media/delete.a762156b.svg": "/panel/static/media/delete.a762156b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.a888d215.js",
     "static/css/2.a4406c3f.chunk.css",
-    "static/js/2.57236560.chunk.js",
-    "static/css/main.2899ae1f.chunk.css",
-    "static/js/main.3f907cc9.chunk.js"
+    "static/js/2.482f30cc.chunk.js",
+    "static/css/main.f9e4986c.chunk.css",
+    "static/js/main.536ea072.chunk.js"
   ]
 }
